@@ -159,6 +159,10 @@ func printUint(w io.Writer, val uint64, base int) {
 	w.Write([]byte(strconv.FormatUint(val, base)))
 }
 
+func printHex(w io.Writer, val uint64, base int) {
+	w.Write([]byte(fmt.Sprintf("%#02x", val)))
+}
+
 // printFloat outputs a floating point value using the specified precision,
 // which is expected to be 32 or 64bit, to Writer w.
 func printFloat(w io.Writer, val float64, precision int) {

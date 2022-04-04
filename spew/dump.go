@@ -321,7 +321,11 @@ func (d *dumpState) dump(v reflect.Value) {
 		printInt(d.w, v.Int(), 10)
 
 	case reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uint:
-		printUint(d.w, v.Uint(), 10)
+		if kind == reflect.Uint8 && d.cs.EnableByteAsHex {
+			printHex(d.w, v.Uint(), 10)
+		} else {
+			printUint(d.w, v.Uint(), 10)
+		}
 
 	case reflect.Float32:
 		printFloat(d.w, v.Float(), 32)

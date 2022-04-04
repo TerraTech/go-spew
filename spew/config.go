@@ -98,6 +98,9 @@ type ConfigState struct {
 	// be spewed to strings and sorted by those strings.  This is only
 	// considered if SortKeys is true.
 	SpewKeys bool
+
+	// EnableByteAsHex specifies if uint8/byte types are emitted as hex '%#02x' format
+	EnableByteAsHex bool
 }
 
 // Config is the active configuration of the top-level functions.
